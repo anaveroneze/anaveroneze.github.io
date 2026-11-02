@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: 'en' }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title | default: site.author }}</title>
+    <meta name="author" content="{{ site.author }}">
+    <meta name="description" content="{{ page.description | default: site.description }}">
+    <meta property="og:title" content="{{ page.title | default: site.author }}">
+    <meta property="og:description" content="{{ page.description | default: site.description }}">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{ '/css/main.css' | relative_url }}">
+    {% if site.favicon %}
+    <link rel="icon" href="{{ site.favicon | relative_url }}">
+    {% endif %}
+    {% if site.google_analytics_id %}
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics_id }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '{{ site.google_analytics_id }}');
+    </script>
+    {% endif %}
+</head>
+<body>
+    <div class="wrapper">
+        <div class="navbar container">
+            {% if site.title != "" %}
+            <a id="author-name" class="alignable pull-left" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+            {% endif %}
+            <ul id="navlist" class="alignable pull-right navbar-ul">
+                {% for item in site.nav %}
+                <li class="alignable pull-left nav-list">
+                    {% if item.link contains ".pdf" %}
+                    <a target="_blank" href="{{ item.link | relative_url }}">{{ item.name }}</a>
+                    {% else %}
+                    <a href="{{ item.link | relative_url }}">{{ item.name }}</a>
+                    {% endif %}
+                    {% unless forloop.last %} / {% endunless %}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div style="clear:both"></div>
+        <div class="container content">
+            <hr>
+            {{ content }}
+            <footer class="custom-footer"></footer>
+        </div>
+    </div>
+</body>
+</html>

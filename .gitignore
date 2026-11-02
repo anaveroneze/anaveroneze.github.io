@@ -1,0 +1,8 @@
+# Build output and caches
+_site
+.sass-cache
+.jekyll-cache
+.DS_Store
+
+# Pages kept locally but not published
+projects.md

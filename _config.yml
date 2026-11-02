@@ -1,0 +1,30 @@
+title: ""
+author: "Ana Veroneze Solórzano"
+description: "PhD student in Computer Engineering at Northeastern University. HPC, data privacy, and the societal impact of supercomputing."
+url: "https://anaveroneze.github.io"
+baseurl: ""
+favicon: "/img/a.ico"
+
+markdown: kramdown
+
+# Google Analytics 4 measurement ID, looks like G-XXXXXXXXXX. Leave empty to disable tracking.
+google_analytics_id:
+
+sass:
+  style: compressed
+  sass_dir: _sass
+
+# Files kept in the folder but not built into the site.
+exclude:
+  - README.md
+  - projects.md
+
+nav:
+  - name: "Home"
+    link: "/"
+  - name: "Experience"
+    link: "/experience"
+  - name: "Personal"
+    link: "/personal"
+  - name: "Media"
+    link: "/media"
